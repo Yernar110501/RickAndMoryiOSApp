@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Controller to show variious app options and settings
 final class RMSettingsViewController: UIViewController {
 
     //MARK: - Lyfecycle

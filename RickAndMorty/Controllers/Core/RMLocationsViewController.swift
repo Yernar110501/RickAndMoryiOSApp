@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Controller to search and show for Locations
 final class RMLocationsViewController: UIViewController {
 
     //MARK: - Lyfecycle

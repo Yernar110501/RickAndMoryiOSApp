@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Controller to search and show for Episodes
 final class RMEpisodesViewController: UIViewController {
 
     //MARK: - Lyfecycle
