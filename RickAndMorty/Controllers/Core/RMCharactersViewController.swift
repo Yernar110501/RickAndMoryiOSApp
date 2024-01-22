@@ -8,7 +8,8 @@
 import UIKit
 
 final class RMCharactersViewController: UIViewController {
-
+//MARK: - Properties
+    
     //MARK: - Lyfecycle
     override func viewDidLoad() {
         super.viewDidLoad()
