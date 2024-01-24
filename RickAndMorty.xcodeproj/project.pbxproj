@@ -84,7 +84,6 @@
 		AE0006022B5EC3F6000C6A00 /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
-				AE00063D2B602976000C6A00 /* Tests */,
 				AE00061D2B5ECA7E000C6A00 /* Resources */,
 				AE00061C2B5ECA65000C6A00 /* Managers */,
 				AE00061B2B5ECA5A000C6A00 /* APIClient */,
@@ -177,13 +176,6 @@
 				AE0006342B60191B000C6A00 /* RMOrigin.swift */,
 			);
 			path = Objects;
-			sourceTree = "<group>";
-		};
-		AE00063D2B602976000C6A00 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tests;
 			sourceTree = "<group>";
 		};
 		AE0006422B617CE2000C6A00 /* DataTypes */ = {
