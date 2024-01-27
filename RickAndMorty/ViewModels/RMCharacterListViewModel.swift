@@ -7,27 +7,38 @@
 
 import UIKit
 
-final class CharacterListViewModel: NSObject {
+final class RMCharacterListViewModel: NSObject {
+    
+   // private var viewModel = [RMCharacterCollectionViewCellViewModel]()
+    
     func fetchCharacters() {
         RMService.shared.execute(.listCharactersRequests, expecting: RMGetAllCharactersResponse.self) { result in
             switch result {
             case .success(let model):
                 print("Total: \(model.info.count)")
                 print("Total: \(model.results.count)")
+                print("Image example: \(model.results.first?.image ?? "image is nil for first")")
+                //self.viewModel = model
             case .failure(let error):
                 print(String(describing: error))
             }
         }
     }
 }
-extension CharacterListViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension RMCharacterListViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemGreen
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier,
+                                                            for: indexPath) as? RMCharacterCollectionViewCell else {
+            fatalError("Unsupported cell type")
+        }
+        let viewModel = RMCharacterCollectionViewCellViewModel(characterName: "Name",
+                                                               characterStatus: .alive,
+                                                               chracterImage:  URL(string: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"))
+        cell.configure(with: viewModel)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -11,7 +11,7 @@ import UIKit
 final class RMCharactersViewController: UIViewController {
     //MARK: - Properties
     
-    private let charactetListView = CharacterListView()
+    private let charactetListView = RMCharacterListView()
     
     //MARK: - Lyfecycle
     override func viewDidLoad() {
