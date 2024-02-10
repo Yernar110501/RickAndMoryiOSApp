@@ -62,13 +62,51 @@ final class RMRequest {
     ///   - rmEndpoint: Target endpoint location, character or episode
     ///   - pathComponents: Collection of path components
     ///   - queryParameters: Collection of query parameters
-    public init(rmEndpoint: RMEndpoint, pathComponents: [String] = [], queryParameters: [URLQueryItem] = []) {
+    public init(rmEndpoint: RMEndpoint,
+                pathComponents: [String] = [],
+                queryParameters: [URLQueryItem] = [] ) {
         self.rmEndpoint = rmEndpoint
         self.pathComponents = pathComponents
         self.queryParameters = queryParameters
     }
     //https://rickandmortyapi.com/api/character/2
 
+    convenience init?(url: URL) {
+        let string = url.absoluteString
+        if !string.contains(Constants.baseUrl) {
+            return nil
+        }
+        let trimmed = string.replacingOccurrences(of: Constants.baseUrl+"/", with: "")
+        if trimmed.contains("/") {
+            let components = trimmed.components(separatedBy: "/")
+            if !components.isEmpty {
+                let endpointString = components[0]
+                if let rmEndpoint = RMEndpoint(rawValue: endpointString) {
+                    self.init(rmEndpoint: rmEndpoint)
+                    return
+                }
+            }
+            
+        } else if trimmed.contains("?"){
+            let components = trimmed.components(separatedBy: "?")
+            if !components.isEmpty, components.count >= 2 {
+                let endpointString = components[0]
+                let queryItemsString = components[1]
+                let queryItem:[URLQueryItem] = queryItemsString.components(separatedBy: "&").compactMap {
+                    guard $0.contains("=") else {
+                        return nil
+                    }
+                    let parts = $0.components(separatedBy: "=")
+                    return URLQueryItem(name: parts[0], value: parts[1])
+                }
+                if let rmEndpoint = RMEndpoint(rawValue: endpointString) {
+                    self.init(rmEndpoint: rmEndpoint, queryParameters: queryItem )
+                    return
+                }
+            }
+        }
+        return nil
+    }
 }
 
 extension RMRequest {
