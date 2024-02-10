@@ -36,6 +36,7 @@
 		AE642E8E2B669DC7002373B7 /* RMCharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE642E8D2B669DC7002373B7 /* RMCharacterDetailView.swift */; };
 		AE642E902B669DEF002373B7 /* RMCharacterDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE642E8F2B669DEF002373B7 /* RMCharacterDetailViewViewModel.swift */; };
 		AE642E922B67FCD1002373B7 /* RMFooterLoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE642E912B67FCD1002373B7 /* RMFooterLoadingCollectionReusableView.swift */; };
+		AEC74E962B77C774005AF61B /* RMImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC74E952B77C774005AF61B /* RMImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		AE642E8D2B669DC7002373B7 /* RMCharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterDetailView.swift; sourceTree = "<group>"; };
 		AE642E8F2B669DEF002373B7 /* RMCharacterDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterDetailViewViewModel.swift; sourceTree = "<group>"; };
 		AE642E912B67FCD1002373B7 /* RMFooterLoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMFooterLoadingCollectionReusableView.swift; sourceTree = "<group>"; };
+		AEC74E952B77C774005AF61B /* RMImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 		AE00061C2B5ECA65000C6A00 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				AEC74E952B77C774005AF61B /* RMImageLoader.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				AE0006282B5ECCB2000C6A00 /* RMCharactersViewController.swift in Sources */,
 				AE642E862B651DF8002373B7 /* RMCharacterCollectionViewCell.swift in Sources */,
 				AE0006042B5EC3F6000C6A00 /* AppDelegate.swift in Sources */,
+				AEC74E962B77C774005AF61B /* RMImageLoader.swift in Sources */,
 				AE0006062B5EC3F6000C6A00 /* SceneDelegate.swift in Sources */,
 				AE0006372B60198B000C6A00 /* RMSingleLocation.swift in Sources */,
 				AE00062C2B5ECCE4000C6A00 /* RMSettingsViewController.swift in Sources */,
